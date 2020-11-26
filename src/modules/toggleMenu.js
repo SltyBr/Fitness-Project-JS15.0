@@ -16,12 +16,9 @@ const toggleMenu = ()=>{
 
   // функция закрытия модального окна на крестик или если клик был вне модального окна, принимает id формы
   const closeModal = (formId)=>{
-    document.getElementById(`${formId}`).querySelector('.close_icon').addEventListener('click', ()=>{
-      document.getElementById(`${formId}`).style.display = 'none';
-    });
     document.getElementById(`${formId}`).addEventListener('click', (event)=>{
       let target = event.target;
-      if(!target.closest(`.form-wrapper`)){
+      if(target.matches('.close_icon') || !target.closest(`.form-wrapper`) || target.matches('.close-btn')){
         document.getElementById(`${formId}`).style.display = 'none';
       }
     });
@@ -29,6 +26,7 @@ const toggleMenu = ()=>{
 
   closeModal('free_visit_form');
   closeModal('callback_form');
+  closeModal('gift');
 
 
   document.addEventListener('click', (event)=>{
