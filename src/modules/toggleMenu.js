@@ -37,6 +37,9 @@ const toggleMenu = ()=>{
     if(target.closest('.clubs-list')){
       handlerMenu(listId);
     }
+    if(!target.closest('.clubs-list') && listId.style.display === 'block'){
+      handlerMenu(listId);
+    }
     if(target.closest('.free-visit')){
       handlerMenu(freeVisitForm);
     }
