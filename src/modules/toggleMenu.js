@@ -40,11 +40,10 @@ const toggleMenu = ()=>{
     if(target.closest('.free-visit')){
       handlerMenu(freeVisitForm);
     }
-    if(target.matches('.callback-btn')){
+    if(target.matches('.callback-btn') && !target.matches('#callback-btn__footer')){
       handlerMenu(callbackForm);
     }
   });
-
   
 };
 
