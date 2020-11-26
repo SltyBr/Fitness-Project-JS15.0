@@ -4,6 +4,7 @@ import otherThings from './modules/otherThings';
 import gift from './modules/gift';
 import headSlider from './modules/headSlider';
 import sendForm from './modules/sendForm';
+import sliderCarousel from './modules/servicesSlider';
 
 //меню и модальные окна
 toggleMenu();
@@ -19,3 +20,6 @@ headSlider();
 
 //отправка форм
 sendForm();
+
+//слайдер карусель
+sliderCarousel();

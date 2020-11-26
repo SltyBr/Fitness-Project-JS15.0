@@ -878,8 +878,6 @@ body {
 .wrapper {
   max-width: 1170px;
   margin: 0 auto;
-  padding-left: 15px;
-  padding-right: 15px
 }
 
 .btn {
@@ -1539,13 +1537,10 @@ nav.popup-menu .close-menu-btn img {
   display: flex;
   margin: 0 auto;
   padding-left: 15px;
-  padding-right: 15px
 }
 
 .services-slider .slide {
   text-align: center;
-  margin-right: 6px;
-  margin-left: 6px;
   width: 210px
 }
 
@@ -1608,7 +1603,6 @@ nav.popup-menu .close-menu-btn img {
 #gallery .gallery-slider {
   padding-left: 75px;
   padding-right: 75px;
-  max-width: 900px;
   margin: 0 auto;
   text-align: center
 }
