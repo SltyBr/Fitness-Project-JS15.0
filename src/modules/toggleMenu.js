@@ -21,6 +21,10 @@ const toggleMenu = ()=>{
       let target = event.target;
       if(target.matches('.close_icon') || !target.closest(`.form-wrapper`) || target.matches('.close-btn')){
         document.getElementById(`${formId}`).style.display = 'none';
+        document.getElementById(`${formId}`).querySelectorAll('input').forEach((item)=>{
+          item.value = '';
+          item.checked = false;
+        });
       }
     });
   };
