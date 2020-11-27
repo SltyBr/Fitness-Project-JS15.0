@@ -1491,6 +1491,39 @@ nav.popup-menu .close-menu-btn img {
   font-weight: 700
 }
 
+.gallery-slide{
+  opacity: 0;
+}
+
+.slide-active{
+  opacity: 1;
+  transition: opacity .8s
+}
+
+#arrow-left{
+  width: 35px; 
+  height: 35px;
+  border-radius: 50%;
+  border: none; 
+  position: absolute;
+  left: 13%;
+  top: 47%;
+  background: url(../images/arrow-left.png) no-repeat center/35% 50%;
+  background-color: #ffd11a;
+}
+
+#arrow-right{
+  width: 35px; 
+  height: 35px;
+  border-radius: 50%;
+  border: none;
+  position: absolute;
+  right: 13%;
+  top: 47%;
+  background: url(../images/arrow-right.png) no-repeat center/35% 50%;
+  background-color: #ffd11a;
+}
+
 #clubs .content .text p {
   font-size: 17px;
   font-weight: 300;

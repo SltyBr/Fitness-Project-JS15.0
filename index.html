@@ -275,22 +275,25 @@
     <h2>Фотогалерея</h2>
     <div class="gallery-bg">
         <div class="wrapper">
-            <div class="gallery-slider">
-                <div class="slide">
+            <div class="gallery-slider" style="position: relative; height: 450px; display: flex; justify-content: 
+                center; align-items: center;">
+                <div class="slide gallery-slide slide-active" style="position: absolute;">
                     <img src="images/gallery/photo1.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="slide gallery-slide" style="position: absolute;">
                     <img src="images/gallery/photo2.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="slide gallery-slide" style="position: absolute;">
                     <img src="images/gallery/photo3.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="slide gallery-slide" style="position: absolute;">
                     <img src="images/gallery/photo4.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="slide gallery-slide" style="position: absolute;">
                     <img src="images/gallery/photo5.jpg" alt="">
                 </div>
+                <button id="arrow-left"></button>
+                <button id="arrow-right"></button>
             </div>
         </div>
     </div>

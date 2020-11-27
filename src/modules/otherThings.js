@@ -45,6 +45,24 @@
     });
   };
   nameValidate('input[name="name"]');
+
+  //функция появления кнопки "наверх" при прокрутке вниз
+  const fadeArrowTop = ()=>{
+
+    const arrowTop = document.getElementById('totop');
+    arrowTop.style.display = 'none';
+    document.addEventListener('scroll', ()=>{
+      let scrollValue = document.documentElement.scrollTop;
+      if(scrollValue > 200){
+        arrowTop.style.display = 'block';
+      } else if(scrollValue < 200){
+        arrowTop.style.display = 'none';
+      }
+    });
+
+  };
+  fadeArrowTop();
+
 };
 
 export default otherThings;

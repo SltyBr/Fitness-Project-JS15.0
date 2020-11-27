@@ -23,7 +23,7 @@ const headSlider = ()=>{
     nextSlide(mainSliderItems, currentSlide);
   };
 
-  const startSlide = (time = 5000) => {
+  const startSlide = (time = 3000) => {
     interval = setInterval(autoPlaySlide, time);
   };
 
