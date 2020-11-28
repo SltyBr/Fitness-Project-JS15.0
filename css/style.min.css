@@ -1524,6 +1524,27 @@ nav.popup-menu .close-menu-btn img {
   background-color: #ffd11a;
 }
 
+.gallery-lines{
+  position: absolute;
+  bottom: 15%;
+  display: flex;
+  justify-content: space-between;
+  transition: all .3s linear;
+}
+
+.line{
+  width: 30px;
+  height: 5px;
+  border-radius: 10%;
+  margin-left: 5px;
+  cursor: pointer;
+  background-color: #bababa;
+}
+
+.line-active{
+  background-color: #ffd11a;
+}
+
 #clubs .content .text p {
   font-size: 17px;
   font-weight: 300;
