@@ -347,30 +347,36 @@
     <h2>Фотогалерея</h2>
     <div class="gallery-bg">
         <div class="wrapper">
-            <div class="gallery-slider">
-                <div class="slide">
+            <div class="gallery-slider" style="position: relative; height: 450px; display: flex; justify-content: 
+            center; align-items: center;">
+                <div class="slide gallery-slide slide-active" style="position: absolute;">
                     <img src="images/gallery/photo1.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="slide gallery-slide" style="position: absolute;">
                     <img src="images/gallery/photo2.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="slide gallery-slide" style="position: absolute;">
                     <img src="images/gallery/photo3.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="slide gallery-slide" style="position: absolute;">
                     <img src="images/gallery/photo4.jpg" alt="">
                 </div>
-                <div class="slide">
+                <div class="slide gallery-slide" style="position: absolute;">
                     <img src="images/gallery/photo5.jpg" alt="">
                 </div>
+                <button id="arrow-left"></button>
+                <button id="arrow-right"></button>
+                <ul class="gallery-lines">
+                    
+                </ul>
             </div>
         </div>
     </div>
 </section>
 <section id="services">
-    <div class="wrapper">
+    <div class="wrapper services-wrapper" style="position: relative;">
         <h2>услуги наших клубов</h2>
-        <div class="services-slider">
+        <div class="services-slider ">
             <div class="slide">
                 <img src="images/services-slider/akva.jpg" alt="Аква территория">
                 <h6>Аква территория</h6>
@@ -422,6 +428,8 @@
                 <p>Йога - идеальны не только физическая форма, но и эмоциональное состояние</p>
             </div>
         </div>
+        <button class="single-slider__prev" style="top: 40%;"></button>
+        <button class="single-slider__next" style="top: 40%;"></button>
     </div>
 </section>
 <section id="banner">

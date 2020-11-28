@@ -1,5 +1,5 @@
 const sliderCarousel = () => {
-  class SliderCarousel {
+    class SliderCarousel {
       constructor({
           main,
           wrap,
@@ -30,10 +30,8 @@ const sliderCarousel = () => {
 
           if (this.prev && this.next) {
               this.controlSlider();
-          } else {
-              this.addArrow();
-              this.controlSlider();
           }
+          
           if (this.responsive) {
               this.responseInit();
           }
@@ -46,6 +44,8 @@ const sliderCarousel = () => {
           for (const item of this.slides) {
               item.classList.add('single-slider__item');
           }
+          this.prev = document.querySelector('.single-slider__prev');
+          this.next = document.querySelector('.single-slider__next');
       }
 
       addStyle() {
@@ -97,47 +97,6 @@ const sliderCarousel = () => {
           }
       }
 
-      addArrow() {
-          this.prev = document.createElement('button');
-          this.next = document.createElement('button');
-
-          this.prev.className = 'single-slider__prev';
-          this.next.className = 'single-slider__next';
-
-          this.main.insertAdjacentElement('afterbegin',this.next);
-          this.main.insertAdjacentElement('afterbegin',this.prev);
-
-          const style = document.createElement('style');
-          style.textContent = `
-              .single-slider__prev,
-              .single-slider__next {
-                  position: absolute;
-                  width: 30px;
-                  height: 30px;
-                  border-radius: 50%;
-              }
-              .single-slider__next {
-                background: url(../images/arrow-right.png) no-repeat center/10px 18px;
-                background-color: #ffd11a;
-                border: none;
-                position: absolute;
-                top: calc(25%);
-                z-index: 1;
-                right: 0;
-              }
-              .single-slider__prev {
-                position: absolute;
-                background: url(../images/arrow-left.png) no-repeat center/10px 18px;
-                background-color: #ffd11a;
-                border: none;
-                top: calc(25%);
-                z-index: 1;
-                left: 0;
-              }
-              `;
-          document.head.append(style);
-      }
-
       responseInit() {
           const slidersToShowDefault = this.slidersToShow;
           const allResponse = this.responsive.map(item => item.breakpoint);
@@ -166,7 +125,6 @@ const sliderCarousel = () => {
       }
   }
 
-  // eslint-disable-next-line no-undef
   const carousel = new SliderCarousel({
       main: '.services-wrapper',
       wrap: '.services-slider',

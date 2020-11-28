@@ -48,7 +48,7 @@ const gallerySlider = ()=>{
     clearInterval(interval);
   };
 
-  /* startSlide(); */
+  startSlide();
 
   gallerySlide.addEventListener('click', event => {
     event.preventDefault();
@@ -81,14 +81,16 @@ const gallerySlider = ()=>{
     nextSlide(line, currentSlide, 'line-active');
   });
 
-  gallerySlide.addEventListener('mouseover', event => {
-    if (event.target.matches('#arrow-right') || event.target.matches('#arrow-left')) {
+  gallerySlide.addEventListener('mouseover', (event) => {
+    let target = event.target;
+    if (target.matches('#arrow-right') || target.matches('#arrow-left') || target.matches('.line')) {
         stopSlide();
     }
   });
 
-  gallerySlide.addEventListener('mouseout', event => {
-    if (event.target.matches('#arrow-left') || event.target.matches('#arrow-right')) {
+  gallerySlide.addEventListener('mouseout', (event) => {
+    let target = event.target;
+    if (target.matches('#arrow-left') || target.matches('#arrow-right') || target.matches('.line')) {
         startSlide();
     }
   });
