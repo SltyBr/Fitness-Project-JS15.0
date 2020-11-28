@@ -48,7 +48,7 @@ const gallerySlider = ()=>{
     clearInterval(interval);
   };
 
-  startSlide();
+  /* startSlide(); */
 
   gallerySlide.addEventListener('click', event => {
     event.preventDefault();

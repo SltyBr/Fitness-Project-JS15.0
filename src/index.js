@@ -6,6 +6,7 @@ import headSlider from './modules/headSlider';
 import sendForm from './modules/sendForm';
 import sliderCarousel from './modules/servicesSlider';
 import gallerySlider from './modules/gallerySlider';
+import calc from './modules/calc';
 
 //меню и модальные окна
 toggleMenu();
@@ -27,3 +28,6 @@ sliderCarousel();
 
 //слайдер галереи
 gallerySlider();
+
+//калькулятор абонемента
+calc();

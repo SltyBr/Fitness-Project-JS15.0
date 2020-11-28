@@ -1,13 +1,11 @@
 const gift = ()=>{
   
-/*   const giftId  = document.getElementById('gift'),
-        fixedGift = document.querySelector('.fixed-gift');
-
-  fixedGift.addEventListener('click', ()=>{
-    fixedGift.style.display = 'none';
-    giftId.style.display = 'block';
-  });
- */
+  if(document.querySelector('.fixed-gift') && document.getElementById('gift')){
+    document.querySelector('.fixed-gift').addEventListener('click', ()=>{
+      document.querySelector('.fixed-gift').style.display = 'none';
+      document.getElementById('gift').style.display = 'block';
+    });
+  }
 };
 
 export default gift;
