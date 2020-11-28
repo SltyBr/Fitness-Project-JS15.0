@@ -1,5 +1,5 @@
-const sendForm = ()=>{
-  const form = document.getElementById('form2');
+const sendForm = (formId)=>{
+  const form = document.getElementById(`${formId}`);
 
   let body = {};
 
