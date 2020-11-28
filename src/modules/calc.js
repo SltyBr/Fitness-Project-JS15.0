@@ -10,20 +10,43 @@ const calc = ()=>{
   const pricesSecondCase = [2999, 14900, 21900, 24900];
   const prices = {};
 
-  const getPrice = (option, price)=>{
-    option.addEventListener('click', ()=>{
-      priceTotal.textContent = '';
-      monthsOptions.forEach((item, index)=>{
-        prices[item.value] = price[index];
-        item.addEventListener('click', ()=>{
+  const getPriceMonth = (option, price)=>{
+    monthsOptions.forEach((item, index)=>{
+        if(option.checked && item.checked){
+          prices[item.value] = price[index];
           for(let key in prices){
             if(item.value == key){
               priceTotal.textContent = `${prices[key]} р.`;
               promocode.addEventListener('change', ()=>{
                 if(promocode.value === 'ТЕЛО'){
-                  prices[key] = prices[key]*0.7;
+                  let newPrice = prices[key]*0.7;
                   promocode.style.border = '3px solid green';
-                  priceTotal.textContent = `${prices[key].toFixed(0)} р.`;
+                  priceTotal.textContent = `${newPrice} р.`;
+                } else{
+                  alert('неверный промокод, попробуйте ещё раз');
+                  promocode.value = '';
+                }
+              });
+            }
+          }
+        }
+
+    });
+  };
+
+  const getPriceCheck = (option, price)=>{
+    option.addEventListener('click', ()=>{
+      monthsOptions.forEach((item, index)=>{
+        prices[item.value] = price[index];
+        item.addEventListener('click', ()=>{
+          for(let key in prices){
+            if(item.value == key){
+              priceTotal.textContent = `${prices[key].toFixed(0)} р.`;
+              promocode.addEventListener('change', ()=>{
+                if(promocode.value === 'ТЕЛО'){
+                  let newPrice = prices[key]*0.7;
+                  promocode.style.border = '3px solid green';
+                  priceTotal.textContent = `${newPrice.toFixed(0)} р.`;
                 } else{
                   alert('неверный промокод, попробуйте ещё раз');
                   promocode.value = '';
@@ -36,10 +59,10 @@ const calc = ()=>{
     });
   };
 
-  getPrice(firstCase, pricesFirstCase);
-  getPrice(secondCase, pricesSecondCase);
-
-
+  getPriceCheck(firstCase, pricesFirstCase);
+  getPriceMonth(firstCase, pricesFirstCase);
+  getPriceCheck(secondCase, pricesSecondCase);
+  getPriceMonth(secondCase, pricesSecondCase);
 };
 
 export default calc;
