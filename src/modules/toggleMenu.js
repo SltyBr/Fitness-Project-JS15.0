@@ -31,7 +31,9 @@ const toggleMenu = ()=>{
 
   closeModal('free_visit_form');
   closeModal('callback_form');
-  closeModal('gift');
+  if(document.getElementById('gift')){
+    closeModal('gift');
+  }
   closeModal('thanks');
 
 

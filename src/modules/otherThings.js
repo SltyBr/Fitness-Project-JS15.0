@@ -62,7 +62,6 @@
 
   };
   fadeArrowTop();
-
 };
 
 export default otherThings;
