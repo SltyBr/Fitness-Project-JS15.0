@@ -1,5 +1,5 @@
 const calc = ()=>{
-  const firstCase = document.getElementById('card_leto_mozaika'),
+/*   const firstCase = document.getElementById('card_leto_mozaika'),
         secondCase = document.getElementById('card_leto_schelkovo'),
         months = document.querySelector('.time'),
         priceTotal = document.getElementById('price-total'),
@@ -62,7 +62,7 @@ const calc = ()=>{
   getPriceCheck(firstCase, pricesFirstCase);
   getPriceMonth(firstCase, pricesFirstCase);
   getPriceCheck(secondCase, pricesSecondCase);
-  getPriceMonth(secondCase, pricesSecondCase);
+  getPriceMonth(secondCase, pricesSecondCase); */
 };
 
 export default calc;
