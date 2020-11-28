@@ -1,135 +1,57 @@
-const sendForm = (formId)=>{
-  const checkBox = document.querySelectorAll('input[type="checkbox"]'),
-        successMessage = 'Мы скоро с Вами свяжемся!',
-        loadMessage = 'Загрузка...',
-        alertPersonalData = 'Дайте согласие на обработку персональных данных';
+const sendForm = ()=>{
+  const form = document.getElementById('form2');
 
-  const removeElement = (el)=>{
-    setTimeout(function(){
-      el.remove();
-    }, 2000);
-  };
+  let body = {};
 
-  const form = document.getElementById(`${formId}`),
-        formInputs = form.querySelectorAll('input');
-  const messageContent = (content)=>{  // функция создания сообщения о статусе заявки
-    let successMessage = document.createElement('div');
-      successMessage.style.cssText = 'font-size: 1rem; color: red';
-      successMessage.textContent = content;
-    return successMessage;
-  };
-  const successMessageContent = messageContent(successMessage);
-  const alertMessageContent = messageContent(alertPersonalData);
-  const loadMessageContent = messageContent(loadMessage);
+  form.addEventListener('submit', formSend);
 
-  const cancel = ()=>{
-    checkBox.forEach((item)=>{
-      if(item.checked === false){
-        form.append(alertMessageContent);
-        return false;
-      }
-    });
-  };
+  async function formSend(e){
+    e.preventDefault();
 
-  form.addEventListener('submit', (event)=>{
-    cancel();
-    event.preventDefault();
-    let body = {};
+    let error = formValidate(form);
 
-    const formData = new FormData(form);
+    let formData = new FormData(form);
 
     formData.forEach((val, key)=>{
       body[key] = val;
     });
-    postData(body)
-      .then((response)=>{
-        if (response.status !== 200) {
-          throw new Error('status network not 200.');
-        }
-        form.append(loadMessageContent);
-        form.removeChild(loadMessageContent);
-        form.append(successMessageContent);
-      })
-      .catch((error)=>{
-        console.error(error);
+
+    if(error === 0){
+      let response = await fetch('./server.php',{
+        method: 'POST',
+        body: JSON.stringify(body)
       });
+      if(response.ok){
+        form.reset();
+      } else{
+        alert('Ошибка');
+      }
+    } else{
+      alert('Дайте согласие на обработку');
+    }
+  }
 
-    const clearFormInputs = ()=>{ 
-      formInputs.forEach((item)=>{
-        item.value = '';
-      });
-    };
-    setTimeout(clearFormInputs, 3000);
+  function formValidate(){
+    let error = 0;
+    let formReq = document.querySelector('._req');
 
-    const clearStatusMessage = ()=>{
-      setTimeout(function(){
-        form.removeChild(successMessageContent);
-      }, 5000);
-    };
-    clearStatusMessage();
-  });
+    formRemoveError(formReq);
 
-  const postData = body => fetch('./server.php', {
-    method: 'POST',
-    headers: {
-        'Content-Type': 'application/json'
-    },
-    body: JSON.stringify(body)
-  });
-/*const checkBox = document.querySelectorAll('input[type="checkbox"]'),
-        thanks = document.getElementById('thanks'),
-        alertMessage = document.createElement('div');
-  console.log(checkBox);
-  alertMessage.textContent = 'Согласитесь на обработку персональных данных!';
-  document.querySelectorAll('form').forEach((form)=>{
-    form.addEventListener('submit', (event)=>{
-      event.preventDefault();
-      let body = {};
-      
-      const removeElement = (el)=>{
-        setTimeout(function(){
-          el.remove();
-        }, 2000);
-      };
+    if(formReq.checked === false){
+      formAddError(formReq);
+      error++;
+    }
+    return error;
+  }
 
-      checkBox.forEach((item)=>{
-        if(!item.checked){
-          form.append(alertMessage);
-          removeElement(alertMessage);
-          return false;
-        }
-      });
-
-
-      const formData = new FormData(form);
-
-      formData.forEach((val, key)=>{
-        body[key] = val;
-      });
-      postData(body)
-        .then((response)=>{
-          if (response.status !== 200) {
-            throw new Error('status network not 200.');
-          } else{
-            form.reset();
-            thanks.style.display = 'block';
-            removeElement(thanks);
-          }
-        })
-        .catch((error)=>{
-          console.error(error);
-        });
-    });
-
-    const postData = body => fetch('./server.php', {
-      method: 'POST',
-      headers: {
-          'Content-Type': 'application/json'
-      },
-      body: JSON.stringify(body)
-    });
-
-  }); */
+  function formAddError(input){
+    input.parentElement.classList.add('_error');
+    input.classList.add('_error');
+  }
+  function formRemoveError(input){
+    input.parentElement.classList.remove('_error');
+    input.classList.remove('_error');
+  }
 };
 
 export default sendForm;

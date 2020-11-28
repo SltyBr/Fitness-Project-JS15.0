@@ -1811,6 +1811,10 @@ nav.popup-menu .close-menu-btn img {
   text-transform: uppercase
 }
 
+.personal-data._error .checkbox__label::before{
+  box-shadow: 0 0 15px red;
+}
+
 #card_order p.personal-data input[type=checkbox]:not(checked)+label:before {
   content: '';
   width: 21px;
