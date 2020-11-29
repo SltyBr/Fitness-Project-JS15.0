@@ -1812,7 +1812,8 @@ nav.popup-menu .close-menu-btn img {
 }
 
 .personal-data._error .checkbox__label::before{
-  box-shadow: 0 0 15px red;
+  box-shadow: 0 0 10px red;
+  border: 1px solid red;
 }
 
 #card_order p.personal-data input[type=checkbox]:not(checked)+label:before {
