@@ -42,6 +42,9 @@ const calc = ()=>{
     if(formCard.querySelector('#promocode').value === 'ТЕЛО2020'){
       result = Math.ceil(result*0.7);
       priceTotal.textContent = result;
+      formCard.querySelector('#promocode').style.border = "3px solid green";
+    } else if(formCard.querySelector('#promocode').value){
+      formCard.querySelector('#promocode').style.border = "3px solid red";
     }
   };
 
