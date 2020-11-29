@@ -1811,6 +1811,11 @@ nav.popup-menu .close-menu-btn img {
   text-transform: uppercase
 }
 
+.club._error .checkbox__label::before{
+  box-shadow: 0 0 10px red;
+  border: 1px solid red;
+}
+
 .personal-data._error .checkbox__label::before{
   box-shadow: 0 0 10px red;
   border: 1px solid red;

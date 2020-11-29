@@ -21,11 +21,11 @@ gift();
 headSlider();
 
 //отправка форм
-sendForm('form2');
-/* sendForm('form1');
+sendForm('form2', 'free_visit_form');
+sendForm('form1', 'callback_form');
 sendForm('banner-form');
+sendForm('card_order');
 sendForm('footer_form');
-sendForm('card_order'); */
 
 //слайдер карусель
 sliderCarousel();

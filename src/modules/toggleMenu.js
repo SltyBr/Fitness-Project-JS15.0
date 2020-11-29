@@ -24,6 +24,7 @@ const toggleMenu = ()=>{
         document.getElementById(`${formId}`).querySelectorAll('input').forEach((item)=>{
           item.value = '';
           item.checked = false;
+          document.getElementById(`${formId}`).querySelector('.personal-data').classList.remove('_error');
         });
       }
     });
