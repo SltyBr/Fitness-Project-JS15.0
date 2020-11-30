@@ -6,7 +6,7 @@ const menuBurger = ()=>{
     window.addEventListener('scroll', ()=>{
       let scrollWidth = document.documentElement.scrollWidth,
           scrollTop = document.documentElement.scrollTop;
-      if(scrollWidth < 769 && scrollTop > 150){
+      if(scrollWidth < 768 && scrollTop > 150){
         topMenu.style.position = 'fixed';
       } else{
         topMenu.removeAttribute('style');
