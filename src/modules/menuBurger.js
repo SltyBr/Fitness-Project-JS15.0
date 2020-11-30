@@ -1,5 +1,6 @@
 const menuBurger = ()=>{
-  const topMenu = document.querySelector('.top-menu');
+  const topMenu = document.querySelector('.top-menu'),
+        popupMenu = document.querySelector('.popup-menu');
 
   const scrollWidthFunc = ()=>{
     window.addEventListener('scroll', ()=>{
@@ -13,6 +14,20 @@ const menuBurger = ()=>{
     });
   };
   scrollWidthFunc();
+
+  const closePopup = ()=>{
+    popupMenu.addEventListener('click', (event)=>{
+      let target = event.target;
+      if(target.matches('#close-menu-id')){
+        popupMenu.style.display = "none";
+      }
+      if(target.closest('.scroll>a')){
+        console.log(target);
+        popupMenu.style.display = "none";
+      }
+    });
+  };
+  closePopup();
 
 };
 
