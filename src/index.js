@@ -7,6 +7,7 @@ import sendForm from './modules/sendForm';
 import sliderCarousel from './modules/servicesSlider';
 import gallerySlider from './modules/gallerySlider';
 import calc from './modules/calc';
+import menuBurger from './modules/menuBurger';
 
 //меню и модальные окна
 toggleMenu();
@@ -35,3 +36,6 @@ gallerySlider();
 
 //калькулятор абонемента
 calc();
+
+//настройки бургер меню
+menuBurger();
