@@ -48,14 +48,13 @@
 
   //функция появления кнопки "наверх" при прокрутке вниз
   const fadeArrowTop = ()=>{
-
     const arrowTop = document.getElementById('totop');
     arrowTop.style.display = 'none';
     document.addEventListener('scroll', ()=>{
       let scrollValue = document.documentElement.scrollTop;
-      if(scrollValue > 200){
+      if(scrollValue > document.querySelector('#clubs').scrollHeight){
         arrowTop.style.display = 'block';
-      } else if(scrollValue < 200){
+      } else if(scrollValue < document.querySelector('#clubs').scrollHeight){
         arrowTop.style.display = 'none';
       }
     });
