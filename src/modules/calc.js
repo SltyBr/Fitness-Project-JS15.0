@@ -46,13 +46,12 @@ const calc = ()=>{
         result = Math.ceil(result*0.7);
         priceTotal.textContent = result;
         formCard.querySelector('#promocode').style.border = "3px solid green";
-        formCard.querySelector('#promocode').disabled = true;
       } else if(formCard.querySelector('#promocode').value){
         formCard.querySelector('#promocode').style.border = "3px solid red";
       }
     };
 
-    formCard.addEventListener('change', (event)=>{
+    formCard.addEventListener('input', (event)=>{
       let target = event.target;
       if(target.matches('input[type="radio"]')){
         priceCase();
