@@ -41,11 +41,7 @@ const toggleMenu = ()=>{
 
   document.addEventListener('click', (event)=>{
     let target = event.target;
-
-    if(target.closest('.clubs-list')){
-      handlerMenu(listId);
-    }
-    if(!target.closest('.clubs-list') && listId.style.display === 'block'){
+    if(target.closest('.clubs-list') && !target.closest('ul#list-id')){
       handlerMenu(listId);
     }
     if(target.closest('.free-visit')){
