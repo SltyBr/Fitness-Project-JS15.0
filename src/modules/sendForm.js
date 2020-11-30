@@ -39,12 +39,6 @@ const sendForm = (formId, modalId)=>{
     e.preventDefault();
 
     let error = formValidate(form);
-
-    if(!formValidate(form)){
-      form.append(loadMessage);
-      removeElement(loadMessage);
-    }
-
     let formData = new FormData(form);
 
     formData.forEach((val, key)=>{
@@ -57,6 +51,11 @@ const sendForm = (formId, modalId)=>{
         body: JSON.stringify(body)
       });
       if(response.ok){
+        if(!formValidate(form)){
+          form.append(loadMessage);
+          removeElement(loadMessage);
+        }
+    
         thanksMessage.style.display = 'block';
         if(document.getElementById(`${modalId}`)){
           document.getElementById(`${modalId}`).style.display = 'none';
