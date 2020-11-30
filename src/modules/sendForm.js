@@ -2,7 +2,7 @@ const sendForm = (formId, modalId)=>{
   const form = document.getElementById(`${formId}`),
         thanksMessage = document.getElementById('thanks'),
         mozaikaClub = form.querySelector('#footer_leto_mozaika'),
-        schelkovoClub = form.querySelector('#footer_leto_mozaika');
+        schelkovoClub = form.querySelector('#footer_leto_schelkovo');
 
   const messageContent = (content, color = 'red')=>{  // функция создания сообщения о статусе заявки
     let successMessage = document.createElement('div');
@@ -68,7 +68,7 @@ const sendForm = (formId, modalId)=>{
       }
     } else{
       if(mozaikaClub && schelkovoClub){
-        if(!mozaikaClub.checked && !schelkovoClub.checked){
+        if(!mozaikaClub.checked || !schelkovoClub.checked){
         form.append(clubMessage);
         removeElement(clubMessage);
       }} else{
