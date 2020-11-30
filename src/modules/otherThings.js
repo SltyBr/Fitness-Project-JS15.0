@@ -47,6 +47,7 @@
   };
   nameValidate('input[name="name"]');
 
+  //функция появления кнопки "наверх" в зависимости от селектора
   const scrollHeightSelector = (item)=>{
     if(item)
     {
