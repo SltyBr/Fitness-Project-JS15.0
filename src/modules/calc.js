@@ -42,12 +42,18 @@ const calc = ()=>{
     priceOptions();
 
     const promoPrice = ()=>{
+      formCard.querySelector('#promocode').removeAttribute('style');
       if(formCard.querySelector('#promocode').value === 'ТЕЛО2020'){
         result = Math.ceil(result*0.7);
         priceTotal.textContent = result;
         formCard.querySelector('#promocode').style.border = "3px solid green";
-      } else if(formCard.querySelector('#promocode').value){
+      }
+      else if(formCard.querySelector('#promocode').value){
         formCard.querySelector('#promocode').style.border = "3px solid red";
+        priceOptions();
+      }
+       else if(formCard.querySelector('#promocode').value !== 'ТЕЛО2020'){
+        priceOptions();
       }
     };
 
