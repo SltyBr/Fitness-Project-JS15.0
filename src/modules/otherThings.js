@@ -1,4 +1,5 @@
   const otherThings = () =>{
+    const arrowTop = document.getElementById('totop');
     //маска для телефона
   const maskPhone = (selector, masked = '+7 (___) ___-__-__')=> {
     const elems = document.querySelectorAll(selector);
@@ -46,17 +47,24 @@
   };
   nameValidate('input[name="name"]');
 
-  //функция появления кнопки "наверх" при прокрутке вниз
-  const fadeArrowTop = ()=>{
-    const arrowTop = document.getElementById('totop');
-    arrowTop.style.display = 'none';
-    document.addEventListener('scroll', ()=>{
+  const scrollHeightSelector = (item)=>{
+    if(item)
+    {
       let scrollValue = document.documentElement.scrollTop;
-      if(scrollValue > document.querySelector('#clubs').scrollHeight){
+      if(scrollValue > item.scrollHeight){
         arrowTop.style.display = 'block';
-      } else if(scrollValue < document.querySelector('#clubs').scrollHeight){
+      } else if(scrollValue < item.scrollHeight){
         arrowTop.style.display = 'none';
       }
+    }
+  };
+
+  //функция появления кнопки "наверх" при прокрутке вниз
+  const fadeArrowTop = ()=>{
+    arrowTop.style.display = 'none';
+    document.addEventListener('scroll', ()=>{
+      scrollHeightSelector(document.querySelector('#clubs'));
+      scrollHeightSelector(document.querySelector('#leto-mozaika')); 
     });
 
   };

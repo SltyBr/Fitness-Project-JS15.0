@@ -22,7 +22,6 @@ const menuBurger = ()=>{
         popupMenu.style.display = "none";
       }
       if(target.closest('.scroll>a')){
-        console.log(target);
         popupMenu.style.display = "none";
       }
     });
