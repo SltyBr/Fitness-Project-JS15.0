@@ -22,6 +22,9 @@ const toggleMenu = ()=>{
       let target = event.target;
       if(target.matches('.close_icon') || !target.closest(`.form-wrapper`) || target.matches('.close-btn')){
         document.getElementById(`${itemId}`).style.display = 'none';
+        if(document.querySelector('#html').style){
+          document.querySelector('#html').removeAttribute('style');
+        }
         document.getElementById(`${itemId}`).querySelectorAll('input').forEach((item)=>{
           item.value = '';
           item.checked = false;
